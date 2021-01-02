@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client/books.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(BooksApp());
 }
 
 class MyApp extends StatelessWidget {
