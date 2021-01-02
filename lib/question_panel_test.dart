@@ -1,9 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_client/question_panel.dart';
+import 'package:flutter_client/graphql_api.dart';
 
 void main() {
   testWidgets('User answers a question correctly', (WidgetTester tester) async {
+    final question = AssignNextQuestion$Mutation$Question();
+    question.answerChoices = ['Red', 'Green', 'Blue', 'Orange'];
+    question.text = 'What is the best color';
+
     await tester.pumpWidget(QuestionPanel());
 
     expect(find.text('What is the best color'), findsOneWidget);
