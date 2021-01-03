@@ -42,7 +42,6 @@ class _SignInState extends State<SignInApp> {
   }
 
   void _onSignIn() async {
-    // Secret: Dl1sXhqM7hTRa25-byi3bPtE
     final AuthorizationTokenResponse result =
         await _appAuth.authorizeAndExchangeCode(
       AuthorizationTokenRequest(

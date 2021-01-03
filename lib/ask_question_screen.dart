@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_client/show_answer_screen.dart';
 
-class AskQuestionScreen extends StatelessWidget {
+class AskQuestionScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _AskQuestionScreenState();
+}
+
+class _AskQuestionScreenState extends State<AskQuestionScreen> {
   final text = 'What is the best color?';
   final answers = [
     'Red',
@@ -11,6 +16,20 @@ class AskQuestionScreen extends StatelessWidget {
     'Blue',
     'Orange',
   ];
+  bool _loading = true;
+
+  @override
+  void initState() {
+    _getThingsOnStartup();
+    super.initState();
+  }
+
+  Future _getThingsOnStartup() async {
+    await Future.delayed(Duration(seconds: 3));
+    setState(() {
+      _loading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +37,18 @@ class AskQuestionScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Ask Question screen'),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(text),
-            ..._buildAnswerList(context),
-          ],
-        ),
-      ),
+      body: _loading
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : Center(
+              child: Column(
+                children: [
+                  Text(text),
+                  ..._buildAnswerList(context),
+                ],
+              ),
+            ),
     );
   }
 
