@@ -1,0 +1,7 @@
+mutation AssignNextQuestion {
+  assignNextQuestion {
+    id
+    text
+    answerChoices
+  }
+}

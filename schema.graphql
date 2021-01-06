@@ -1,0 +1,13 @@
+type Question {
+  id: ID!
+  text: String!
+  answerChoices: [String!]!
+}
+
+type Query {
+  questions: [Question!]!
+}
+
+type Mutation {
+  assignNextQuestion: Question
+}
