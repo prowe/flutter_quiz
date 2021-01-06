@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_client/main.dart';
 import 'package:flutter_client/show_answer_screen.dart';
 
 class AskQuestionScreen extends StatefulWidget {
@@ -46,6 +47,7 @@ class _AskQuestionScreenState extends State<AskQuestionScreen> {
                 children: [
                   Text(text),
                   ..._buildAnswerList(context),
+                  Text('Token: ${MainApp.of(context).tokenResponse.idToken}')
                 ],
               ),
             ),
