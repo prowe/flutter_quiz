@@ -15,6 +15,10 @@ import 'package:flutter_client/sign_in_screen.dart';
   Should there be some sort of global menu?
   How does the "stack" / back work?
 
+  https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html
+  To flow creds down the tree
+  https://pub.dev/documentation/graphql/latest/graphql/AuthLink-class.html is helpful
+
 */
 
 void main() {
