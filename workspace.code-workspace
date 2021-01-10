@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "flutter_client"
+		},
+		{
+			"path": "server"
+		},
+		{
+			"path": "question-server"
+		}
+	],
+	"settings": {}
+}
