@@ -91,21 +91,26 @@ Sweet, So now, let's tear down this house we just built and swap it to use Apoll
 
     // Construct a schema, using GraphQL schema language
     const typeDefs = gql`
-    type Query {
-        hello: String
-    }
+      type Query {
+          hello: String
+      }
     `;
 
     // Provide resolver functions for your schema fields
     const resolvers = {
-    Query: {
-        hello: () => 'Hello world!',
-    },
+      Query: {
+          hello: () => 'Hello world!',
+      },
     };
 
     const server = new ApolloServer({ typeDefs, resolvers });
 
-    exports.graphqlHandler = server.createHandler();
+    exports.graphqlHandler = server.createHandler({
+      cors: {
+        origin: '*',
+        credentials: true,
+      },
+    });
     ```
 5. Add a new function declaration to `template.yaml`:
     ```YAML
